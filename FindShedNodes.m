@@ -1,7 +1,6 @@
-function [Shed_nodes, idx] = FindShedNodes_Rev1(results_pf,mpc_new1)
+function [Shed_nodes, idx] = FindShedNodes(results_pf,mpc_new1)
 [overloaded,Node_From,Node_To] = FindOverLoadBranch(results_pf);
 if ~isempty(overloaded)
-    %     overloaded_nodes = mpc_new1.branch(overloaded,1:2); % all nodes connected to the overloaded branch
     temp1_1 = find(mpc_new1.branch(:,1) == Node_From(1));
     temp1_2 = find(mpc_new1.branch(:,1) == Node_To(1));
     temp1_1 = mpc_new1.branch(temp1_1,2);
